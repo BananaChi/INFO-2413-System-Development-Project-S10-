@@ -53,7 +53,7 @@ public abstract class Player {
      * @param prev, the previously played card. 
      * @return a card from the player's hand.
      */
-    public abstract Card play(Game goFish, Card prev);
+    public abstract Card play(Game GoFish, Card prev);
 
     
    
