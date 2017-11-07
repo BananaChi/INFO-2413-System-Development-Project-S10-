@@ -10,10 +10,22 @@ public abstract class Player {
      * Instantiates a new player with an empty hand.
      *
      * @param username, the name of the player
-     */
+     * @param password, the password of the player
+     */  
+    public Player(String username, String password) {
+       
+        // Dont't know how to login
+        
+    }
+
     
-    public Player(String name) {
-        this.username = name;
+    /**
+     * Instantiates a new guest player with an empty hand.
+     *
+     * @param guest, the name of the player
+     */    
+    public Player(String guest) {
+        this.username = guest;
         this.hand = new Hand();
     }
 
