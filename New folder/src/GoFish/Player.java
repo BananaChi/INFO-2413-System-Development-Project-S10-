@@ -1,3 +1,5 @@
+package GoFish;
+
 public abstract class Player {
 
     /** The name of the player */
@@ -58,7 +60,7 @@ public abstract class Player {
    
     public int score() {
     	
-    	return score;
+    	return 1;
     }
 
     /**

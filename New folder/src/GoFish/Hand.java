@@ -1,3 +1,4 @@
+package GoFish;
 /**
  * This class represents a hand: the cards held by one player.
  */
