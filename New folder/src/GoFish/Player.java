@@ -1,7 +1,7 @@
 public abstract class Player {
 
     /** The name of the player */
-    protected String name;
+    protected String username;
     
     /** The hand: the cards held by one player. */
     protected Hand hand;
@@ -9,10 +9,11 @@ public abstract class Player {
     /**
      * Instantiates a new player with an empty hand.
      *
-     * @param name, the name of the player
+     * @param username, the name of the player
      */
+    
     public Player(String name) {
-        this.name = name;
+        this.username = name;
         this.hand = new Hand();
     }
 
@@ -22,7 +23,7 @@ public abstract class Player {
      * @return the name of the player.
      */
     public String getName() {
-        return name;
+        return username;
     }
 
     /**
@@ -35,13 +36,10 @@ public abstract class Player {
 
     /**
      * Play: this is an abstract method and must be 
-     * implemented in any derived class.
-     *
-     * @param crazyEight, gives access to the "draw pile".
      * @param prev, the previously played card. 
      * @return a card from the player's hand.
      */
-    public abstract Card play(Game crazyEight, Card prev);
+    public abstract Card play(Game goFish, Card prev);
 
     
    
@@ -55,7 +53,7 @@ public abstract class Player {
      * Display the cards in player's hand.
      */
     public void display() {
-    	System.out.println(name + "'s hand:");
+    	System.out.println(username + "'s hand:");
         System.out.println(hand);
     }
 
@@ -63,7 +61,7 @@ public abstract class Player {
      * Display the player's name and score.
      */
     public void displayScore() {
-        System.out.println(name + " has " + score() + " points");
+        System.out.println(username + " has " + score() + " points");
     }
 
     /**
