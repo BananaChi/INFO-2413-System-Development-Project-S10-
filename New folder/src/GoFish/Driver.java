@@ -5,11 +5,10 @@ import java.sql.*;
 public class Driver {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		
 		try {
 			//1. Get a connection to database with root user and blank password
-			Connection myConn = DriverManager.getConnection("GoFish:mysql://localhost:3306/gofish", "kim", "kim");
+			Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gofish", "kim", "kim");
 			
 			//2. Create a statement
 			Statement myStmt = myConn.createStatement();
@@ -23,7 +22,7 @@ public class Driver {
 			}
 		}
 		catch (Exception exc) {
-			
+			exc.printStackTrace();
 		}
 
 	}
