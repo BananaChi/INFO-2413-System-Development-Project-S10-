@@ -1,20 +1,51 @@
 /**
- * 
+ * The class implements player strategy.
+ * It can be used to play against computer.
  */
-package GoFish;
-
-/**
- * @author Anna
- *
- */
-public abstract class Computer {
+public class Computer extends Player {
 
 	/**
-	 * @param args
+	 * Instantiates a new player.
+	 *
+	 * @param name, the name of the player.
 	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	public Computer(String name){
+		super(name);
 	}
+	
+    /* This method implements play from Player class  */
+    public Card play(Game crazyEight) {
+        
+    }
+
+    /**
+     * Searches the player's hand for a matching card.
+	 * <p>
+	 * returns null if no match found.
+	 * </p>
+     * @param prev, the card asked by another player. 
+     * @return a card from the player's hand.
+     */
+    private Card searchForMatch(Card prev) {
+        for (int i = 0; i < hand.size(); i++) {
+            Card card = hand.getCard(i);
+            if (cardMatches(card, prev)) {
+                return hand.popCard(i);
+            }
+        } 
+        return null;
+    }
+
+    /**
+     * @param GoFish, gives access to the "draw pile".
+     * @param prev, the previously played card.
+     * @return a card that matches prev.
+     */
+    private Card drawForMatch(Game GoFish, Card prev) {
+        
+                      
+        
+    }
+
 
 }
