@@ -1,4 +1,3 @@
-package GoFish;
 
 import java.util.Collections;
 

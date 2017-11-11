@@ -2,7 +2,6 @@
  * @author Ravnit Kaur (100329274) 
  * @version 1.0
  */
-package GoFish;
 
 import java.util.ArrayList;
 

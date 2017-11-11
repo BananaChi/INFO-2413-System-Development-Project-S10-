@@ -1,4 +1,3 @@
-package GoFish;
 /* 
  * @author Ravnit Kaur (100329274) 
  * @version 1.0
