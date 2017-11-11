@@ -47,11 +47,9 @@ public abstract class Player {
     }
 
     /**
-     * Play: this is an abstract method and must be 
-     * @param prev, the previously played card. 
-     * @return a card from the player's hand.
+     * Play: this is an abstract method 
      */
-    public abstract Card play(Game GoFish, Card prev);
+    public abstract Card play(Game GoFish);
 
     
    
