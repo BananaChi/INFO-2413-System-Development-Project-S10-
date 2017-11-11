@@ -1,6 +1,3 @@
-/**
- * 
- */
 import java.util.Scanner;
 /**
  * The class creates and maintains the state of the GoFish game.
@@ -15,6 +12,9 @@ public class Game {
 	/** The draw pile (Stock). */
 	private Pile drawPile;
 	
+	/** The discard pile (waste). */
+	private Pile discardPile;
+	
 	/** The input. */
 	private Scanner input;
 	 
@@ -23,8 +23,8 @@ public class Game {
 	 * Note: this constructor creates two human players.
      */
     public Game(String name1, String name2) { 
-        player2 = new User(name 1);
-        player1 = new User(name 2); 
+        player2 = new User(name1);
+        player1 = new User(name2); 
         input = new Scanner(System.in);
         initializeGame();
     }
@@ -72,9 +72,23 @@ public class Game {
     /*  */
     public Card draw() {
         if (drawPile.empty()) {
-            // end the game
+        	reshuffle();
         }
         return drawPile.popCard();
+    }
+    
+    /**
+     * Moves cards from the discard pile to the draw pile and shuffles.
+     * <p>
+	 * Note: this is done if the draw pile ever runs out.
+	 * </p> 
+     */
+    private void reshuffle() {
+        // move all cards
+        discardPile.dealAll(drawPile);
+
+        // shuffle the draw pile
+        drawPile.shuffle();
     }
     
     /**
