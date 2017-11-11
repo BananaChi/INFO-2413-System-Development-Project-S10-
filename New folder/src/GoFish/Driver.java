@@ -1,4 +1,4 @@
-package GoFish;
+
 
 import java.sql.*;
 
@@ -16,7 +16,7 @@ public class Driver {
 	}
 	
 	//method to display the entire database 
-	public getFullData()
+	public void getFullData()
 	{
 		try {
 			//1. Get a connection to database with root user and blank password
@@ -40,7 +40,7 @@ public class Driver {
 	
 	//method to display the database entries for a certain player only
 	
-	public getPlayerData(String username)
+	public void getPlayerData(String username)
 	{
 		try {
 			//1. Get a connection to database with root user and blank password
@@ -65,7 +65,7 @@ public class Driver {
 	
 	//method to get the current score in total for a certain player (sum of scores from all played games), if username doesn't exist, score equals 0
 	
-	public getPlayerScore(String username)
+	public void getPlayerScore(String username)
 	{
 		int sum = 0;
 		
@@ -93,7 +93,7 @@ public class Driver {
 	
 	//method to add a new entry for a player with score from played game
 	
-	public addScore(String username, String password, int score)
+	public void addScore(String username, String password, int score)
 	{
 		
 		try {
