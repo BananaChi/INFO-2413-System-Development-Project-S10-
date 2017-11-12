@@ -1,4 +1,4 @@
-package GoFish;
+
 
 public abstract class Player {
 
