@@ -15,6 +15,9 @@ public class Game {
 	/** The draw pile (Stock). */
 	private Pile drawPile;
 	
+	/** The discard pile (waste). */
+	private Pile discardPile;
+	
 	/** The input. */
 	private Scanner input;
 	 
@@ -72,9 +75,18 @@ public class Game {
     /*  */
     public Card draw() {
         if (drawPile.empty()) {
-            // end the game
+        	reshuffle();
         }
         return drawPile.popCard();
+    }
+    
+    private void reshuffle() {
+        
+        // move the rest of the cards
+        discardPile.dealAll(drawPile);
+
+        // shuffle the draw pile
+        drawPile.shuffle();
     }
     
     /**
@@ -91,15 +103,7 @@ public class Game {
         }
     }
     
-    /**
-    * Displays the state of the game. 
-    */
-   private void displayState() {
-       player1.display();
-       player2.display();
-       // TODO
-   }
-   
+       
    /**
     * Player takes a turn.
     *
@@ -121,7 +125,7 @@ public class Game {
 
        // keep playing until there's a winner
        while (!isDone()) {
-           displayState(); 
+           
            takeTurn(player);
            player = nextPlayer(player);
            waitForUser();

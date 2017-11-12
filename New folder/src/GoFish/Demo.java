@@ -77,11 +77,10 @@ public class Demo {
 	
 	public static String login() {
 		System.out.println("Please enter your usernname: ");
-		Scanner name = new Scanner(System.in);
-		String username = name.nextLine();
+		Scanner input = new Scanner(System.in);
+		String username = input.nextLine();
 		System.out.println("Please enter your password: ");
-		Scanner pwd = new Scanner(System.in);
-		String password = pwd.nextLine();
+		String password = input.nextLine();
 		/*if (username && password exist in database){
 				System.out.println("You are logged in successfully!");
 		}
@@ -95,16 +94,16 @@ public class Demo {
 	
 	public static String register() {
 		System.out.println("Please choose a username: ");
-		Scanner name = new Scanner(System.in);
-		String username = name.nextLine();
-		Scanner pwd = new Scanner(System.in);
+		Scanner input = new Scanner(System.in);
+		String username = input.nextLine();
+		
 		/* if (username already exists in database){
 		 		System.out.println(username + " is not available.");
 		 		register();
 		  }
 		  else {
 		  	System.out.println("Please enter a password: ");
-		  	String password = pwd.nextLine();
+		  	String password = input.nextLine();
 		  	//Save username and password in database; 
 		  	System.out.println("You have successfully registered as " + username);
 		  }
