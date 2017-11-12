@@ -23,8 +23,8 @@ public class Game {
 	 * Note: this constructor creates two human players.
      */
     public Game(String name1, String name2) { 
-        player2 = new User(name 1);
-        player1 = new User(name 2); 
+        player2 = new User(name1);
+        player1 = new User(name2); 
         input = new Scanner(System.in);
         initializeGame();
     }
