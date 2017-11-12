@@ -82,14 +82,15 @@ public class Demo {
 		System.out.println("Please enter your password: ");
 		Scanner pwd = new Scanner(System.in);
 		String password = pwd.nextLine();
-		/*if (username && password exist in database){
-				System.out.println("You are logged in successfully!");
+		
+		if (Driver.getPlayerPassword(username) == password)
+		{
+			System.out.println("You are logged in successfully!");
 		}
 		else{
-			System.out.println("Username or password is incorrect")
+			System.out.println("Username or password is incorrect");
 			login();
 		}
-		*/
 		return username;
 	}
 	
@@ -98,17 +99,22 @@ public class Demo {
 		Scanner name = new Scanner(System.in);
 		String username = name.nextLine();
 		Scanner pwd = new Scanner(System.in);
-		/* if (username already exists in database){
+		if (Driver.usernameExists(username) == true)
+		{
 		 		System.out.println(username + " is not available.");
 		 		register();
-		  }
-		  else {
+		}
+		else 
+		{
 		  	System.out.println("Please enter a password: ");
 		  	String password = pwd.nextLine();
-		  	//Save username and password in database; 
+		  	
+		    //Save username and password in database; 
+		  	Driver.addUser(username, password);
+		  	
 		  	System.out.println("You have successfully registered as " + username);
 		  }
-		*/
+		
 		 return username;
 	}
 
