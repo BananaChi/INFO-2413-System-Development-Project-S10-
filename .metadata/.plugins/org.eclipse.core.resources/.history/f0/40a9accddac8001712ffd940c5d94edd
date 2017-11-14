@@ -18,7 +18,7 @@ public class Computer extends Player {
     /* This method implements play from Player class  */
     public Card play(Game GoFish) {
         Card card1 = hand.getCard(0);
-        Card card2 = searchForMatch(card1);
+        Card card2 = searchForMatch (card1);
         if (card2 == null) {
         	System.out.println("I need" + card1);
         	card2 = anotherPlayerResponse();
