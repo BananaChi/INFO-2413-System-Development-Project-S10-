@@ -1,3 +1,4 @@
+package GoFish;
 public abstract class Player {
 
     /** The name of the player */

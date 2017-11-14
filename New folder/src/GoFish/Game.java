@@ -1,3 +1,4 @@
+package GoFish;
 import java.util.Scanner;
 /**
  * The class creates and maintains the state of the GoFish game.

@@ -1,6 +1,7 @@
 /**
  * This class represents a hand: the cards held by one player.
  */
+package GoFish;
 public class Hand extends CardArray{
 	
 	/**
