@@ -7,6 +7,8 @@ public class User extends Player {
 	/** The input. */
 	private Scanner input;
 	
+	
+	//comment 
 	/**
 	 * Instantiates a human player with an empty hand.
 	 *
