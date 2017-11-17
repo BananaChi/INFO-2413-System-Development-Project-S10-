@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class Demo {
 
 	/**
@@ -7,18 +8,43 @@ public class Demo {
 	 * @param args the arguments
 	 */
 	public static void main(String[] args) {
-		
+		Scanner input = new Scanner(System.in);
     	System.out.println("===================================");
         System.out.println("Welcome to Go Fish!");
         System.out.println("===================================\n");
+        System.out.println("Do you know rules of the game?");
+        System.out.println("Press Y for YES");
+		System.out.println("Press N for NO");
+		char r = input.next().charAt(0);
+		if (r == 'Y'|| r == 'y') {
+			System.out.println("Rules of game:\n" + 
+					"1. Each player will get 5 cards.\n" + 
+					"2. Rest of the cards in deck will stay in a pile (facing down)\n" + 
+					"3. One card from the pile (pile in step2) will be turned up.\n" + 
+					"4. Player1 will have to find a matching card (from his hand) with the card in step3.\n" + 
+					"   Here matching card means, a card with either the same rank or the same suit.\n" + 
+					"For example: If there is an ace of spade, you need to look either for an ace or any card of spade. \n" +
+					"5. If he/she finds a match, he/she will throw the matching card in discard pile (another pile).\n" + 
+					"6. If he/she does not have a matching card, he/she will \"Go Fish\", means he will keep on drawing cards from pile(pile in step 2) until he finds a match.\r\n" + 
+					"7. When he throws a matching card, second player has to find a card, matching with the card thrown by player 1.\r\n" + 
+					"\r\n" + 
+					"How will game get over and how are scores calculated?\r\n" + 
+					"1. If either player runs out of cards, game is over.\r\n" + 
+					"2. The player who is left with the cards will get negative points.\r\n" + 
+					"3. For each left over card with a rank (Ace to 10), he/she will get minus points of that rank. For example, if he/she has a card with rank 5, he will get -5\r\n" + 
+					"4. For each left over face card (Jack, Queen, King), he/she will get -10 points.\r\n" + 
+					"\r\n" + 
+					"");
+			System.out.println("===================================\n");
+		}
         System.out.println("Press 1 to play against computer");
         System.out.println("Press 2 to play against another player");
-        Scanner mode = new Scanner(System.in);
+       
         String name1;
         String name2;
-        int m = mode.nextInt();
-        
-        if (m==1) {
+        int mode = input.nextInt();
+        try {
+        if (mode==1) {
         	int l = displayLoginInfo();
         	if (l==1) {
         		name1 = login();
@@ -31,9 +57,18 @@ public class Demo {
         	}
         	Game GoFish = new Game(name1);
     		GoFish.playGame();
-        }
+    		if (l==1 || l==3) {
+    			System.out.println(name1 + " Do you want to see your previous scores? ");
+        		System.out.println("Press Y for YES");
+        		System.out.println("Press N for NO");
+        		char answer = input.next().charAt(0);
+        		if (answer == 'Y'|| answer == 'y') {
+        			Driver.getPlayerScore(name1);// Display all scores saved in database for name1 in ascending/descending order
+        		}
+    		}
+    	}
         
-        if (m==2) {
+        if (mode==2) {
         	System.out.println("Player1, please pick one of the following options: ");
         	int loginOne = displayLoginInfo();
         	if (loginOne==1) {
@@ -63,6 +98,32 @@ public class Demo {
         	
         	Game GoFish = new Game(name1, name2);
     		GoFish.playGame();
+    		if (loginOne==1 || loginOne==3) {
+    			System.out.println(name1 + " Do you want to see your previous scores? ");
+        		System.out.println("Press Y for YES");
+        		System.out.println("Press N for NO");
+        		char answer = input.next().charAt(0);
+        		if (answer == 'Y'|| answer == 'y') 
+        		{
+        			Driver.getPlayerScore(name1);
+        			// Display all scores saved in database for name1 in ascending/descending order
+        		}
+    		}
+    		if (loginTwo==1 || loginTwo==3) {
+    			System.out.println(name2 + " Do you want to see your previous scores? ");
+        		System.out.println("Press Y for YES");
+        		System.out.println("Press N for NO");
+        		char answer = input.next().charAt(0);
+        		if (answer == 'Y'|| answer == 'y') {
+        			Driver.getPlayerScore(name2);
+        			// Display all scores saved in database for name2 in ascending/descending order
+        		}
+    		}
+    		
+        }
+        }
+        catch(Exception e){
+        	System.out.println(e.toString());
         }
     }
 	
@@ -79,16 +140,21 @@ public class Demo {
 		System.out.println("Please enter your usernname: ");
 		Scanner input = new Scanner(System.in);
 		String username = input.nextLine();
+		while(Driver.usernameExists(username)==false)
+		{
+			System.out.println("Please enter your usernname: ");
+			username = input.nextLine();
+		}
 		System.out.println("Please enter your password: ");
 		String password = input.nextLine();
-		/*if (username && password exist in database){
-				System.out.println("You are logged in successfully!");
+		//String password = new jline.ConsoleReader().readLine(new Character('*'));
+		if (Driver.getPlayerPassword(username).equals(password)) {
+			System.out.println("You are logged in successfully!");
 		}
 		else{
-			System.out.println("Username or password is incorrect")
+			System.out.println("Username or password is incorrect");
 			login();
 		}
-		*/
 		return username;
 	}
 	
@@ -96,19 +162,20 @@ public class Demo {
 		System.out.println("Please choose a username: ");
 		Scanner input = new Scanner(System.in);
 		String username = input.nextLine();
+		String loginname = null;
 		
-		/* if (username already exists in database){
-		 		System.out.println(username + " is not available.");
-		 		register();
-		  }
-		  else {
-		  	System.out.println("Please enter a password: ");
+		if (Driver.usernameExists(username) == true) {
+			System.out.println(username + " is not available.");
+	 		loginname = register();
+		}
+		else {
+			System.out.println("Please enter a password: ");
 		  	String password = input.nextLine();
-		  	//Save username and password in database; 
+		  	Driver.addUser(username, password);
 		  	System.out.println("You have successfully registered as " + username);
-		  }
-		*/
-		 return username;
+		  	loginname = username;
+		}
+		 return loginname;
 	}
 
 }
