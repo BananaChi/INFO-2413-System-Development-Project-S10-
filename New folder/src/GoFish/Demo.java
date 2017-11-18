@@ -12,19 +12,15 @@ public class Demo {
     	System.out.println("===================================");
         System.out.println("Welcome to Go Fish!");
         System.out.println("===================================\n");
-       
         try {
         
 		rules();
 				
-        System.out.println("Press 1 to play against computer");
-        System.out.println("Press 2 to play against another player");
-       
-        String name1;
-        String name2;
-        int mode = input.nextInt();
+		 String name1;
+	     String name2;
+        char mode = selectMode();
       
-        if (mode==1) {
+        if (mode=='1') {
         	int l = displayLoginInfo();
         	if (l==1) {
         		name1 = login();
@@ -48,7 +44,7 @@ public class Demo {
     		}
     	}
         
-        if (mode==2) {
+        if (mode=='2') {
         	System.out.println("Player1, please pick one of the following options: ");
         	int loginOne = displayLoginInfo();
         	if (loginOne==1) {
@@ -195,5 +191,19 @@ public class Demo {
 		}
 		return r;
 	}
-
+	
+	public static char selectMode() {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Press 1 to play against computer");
+        System.out.println("Press 2 to play against another player");
+		char mode = input.next().charAt(0);
+		if (mode == '1' || mode == '2') {
+			return mode;
+		}
+		else {
+			System.out.println("Invalid input");
+			mode = selectMode();
+		}
+		return mode;
+	}
 }
