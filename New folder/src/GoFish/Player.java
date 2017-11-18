@@ -1,5 +1,7 @@
+import java.util.Scanner;
+
 /* 
- * @author Ravnit Kaur (100329274)  
+ * @author Ravnit Kaur, @author Kim Tang  
  * @version 1.0
  */
 package GoFish;
@@ -13,6 +15,7 @@ public abstract class Player {
     
     /** The hand: the cards held by one player. */
     protected Hand hand;
+    
     
     /**
      * Instantiates a new player with an empty hand.
@@ -78,11 +81,13 @@ public abstract class Player {
      * Display the cards in player's hand.
      */
     public void display() {
-    	if (name != "Computer") {
+    	if (name!="Computer") {
     		System.out.println(name + "'s hand:");
     		System.out.println(hand);
-        }
+    	}
     }
+        
+    
 
     /**
      * Display the player's name and score.
@@ -96,9 +101,9 @@ public abstract class Player {
      */
     public void saveScore() {
     	int scoreValue = score();
-    	System.out.println(name);
+    //	System.out.println(name);
         			
-    	if(name != "Guest1" && name != "Guest2") 
+    	if(name != "Guest1" && name != "Guest2" && name!="Computer") 
     	{
     		String pw = Driver.getPlayerPassword(name);
     		Driver.addScore(name, pw, scoreValue);// add scores to database for name

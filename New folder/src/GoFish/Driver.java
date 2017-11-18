@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 package GoFish;
+=======
+/* 
+ * @author Kim Tang
+ * @version 1.0
+ */
+>>>>>>> ravnit
 import java.sql.*;
 
 public class Driver {
