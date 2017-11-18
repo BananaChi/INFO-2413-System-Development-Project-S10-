@@ -134,9 +134,9 @@ public class Game {
      */
     private Player nextPlayer(Player current) {
         if (current == player1) {
-            return player2;
+        	 return player2;
         } else {
-            return player1;
+        	return player1;
         }
     }
     
@@ -144,9 +144,9 @@ public class Game {
      * Displays the state of the game. 
      */
     private void displayState() {
-        player1.display();
+       	player1.display();        
         player2.display();
-        System.out.println(">>> You need to look for: " + discardPile.last());
+        System.out.println(">>> You need to find a match for: " + discardPile.last());
     }
 
     /**
