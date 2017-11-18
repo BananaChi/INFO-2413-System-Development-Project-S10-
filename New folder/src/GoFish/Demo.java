@@ -37,13 +37,14 @@ public class Demo {
 					"");
 			System.out.println("===================================\n");
 		}
+		try {
         System.out.println("Press 1 to play against computer");
         System.out.println("Press 2 to play against another player");
        
         String name1;
         String name2;
         int mode = input.nextInt();
-        try {
+      
         if (mode==1) {
         	int l = displayLoginInfo();
         	if (l==1) {
