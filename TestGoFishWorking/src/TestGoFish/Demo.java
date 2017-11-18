@@ -10,6 +10,7 @@ import java.io.IOException;
 public class Demo {
 	
 	public static int waiting = 0;
+	public static boolean register = false;
 
 	/**
 	 * The main method.
@@ -153,6 +154,7 @@ public class Demo {
 	}
 	
 	public static String register() {
+		Demo.setRegister();
 		System.out.println("Please choose a username: ");
 		Scanner input = new Scanner(System.in);
 		String username = input.nextLine();
@@ -164,7 +166,15 @@ public class Demo {
 		}
 		else {
 			System.out.println("Please enter a password: ");
-		  	String password = input.nextLine();
+		  	//String password = input.nextLine();
+		  	//TODO
+			waiting = 1;
+			PasswordDemo.createAndShowGUI(username);
+			while (waiting == 1)
+			{
+				System.out.print("");
+			}
+			String password = PasswordDemo.getPassword();
 		  	Driver.addUser(username, password);
 		  	System.out.println("You have successfully registered as " + username);
 		  	loginname = username;
@@ -181,6 +191,17 @@ public class Demo {
 	{
 		waiting=n;
 	}
+	
+	public static boolean getRegister()
+	{
+		return register;
+	}
+	
+	public static void setRegister()
+	{
+		register = true;
+	}
+	
 	
 	
 	

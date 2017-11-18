@@ -16,6 +16,7 @@ public class PasswordDemo extends JPanel
     private static String enteredName;
     private JFrame controllingFrame; //needed for dialogs
     private JPasswordField passwordField;
+    private static String enteredPassword;
 
     public PasswordDemo(JFrame f) {
         //Use the default FlowLayout.
@@ -62,11 +63,20 @@ public class PasswordDemo extends JPanel
         if (OK.equals(cmd)) { //Process the password.
             char[] input = passwordField.getPassword();
             if (isPasswordCorrect(input)) {
-                JOptionPane.showMessageDialog(controllingFrame,
-                    "Success! You typed the right password.");
-                     Demo.setWaiting(0);
-                     System.out.println("value:" + Demo.getWaiting());
-                     return;
+            	if(Demo.getRegister() == false)
+            	{
+	                JOptionPane.showMessageDialog(controllingFrame,
+	                    "Success! You typed the right password.");
+	                     Demo.setWaiting(0);
+	                     return;
+            	}
+            	if(Demo.getRegister() == true)
+            	{
+            		JOptionPane.showMessageDialog(controllingFrame,
+    	                    "Wowser! Nice password mate!");
+    	                     Demo.setWaiting(0);
+    	                     return;
+            	}
             } else {
                 JOptionPane.showMessageDialog(controllingFrame,
                     "Invalid password. Try again.",
@@ -95,7 +105,28 @@ public class PasswordDemo extends JPanel
      */
     private static boolean isPasswordCorrect(char[] input) {
         boolean isCorrect = true;
-        char[] correctPassword = Driver.getPlayerPassword(enteredName).toCharArray();// { 'b', 'u', 'g', 'a', 'b', 'o', 'o' };
+        if (Demo.getRegister()==false)
+        {
+        	char[] correctPassword = Driver.getPlayerPassword(enteredName).toCharArray();// { 'b', 'u', 'g', 'a', 'b', 'o', 'o' };
+            
+            //har[] c_arr = g.toCharArray(); // returns a length 4 char array ['l','i','n','e']
+
+            if (input.length != correctPassword.length) {
+                isCorrect = false;
+            } else {
+                isCorrect = Arrays.equals (input, correctPassword);
+            }
+
+            //Zero out the password.
+            Arrays.fill(correctPassword,'0');
+        }
+        else 
+        {
+        	String e = new String(input);
+        	//Driver.addUser(enteredName, e); this is already handled in the register method
+        	enteredPassword = e;
+        }
+        /*char[] correctPassword = Driver.getPlayerPassword(enteredName).toCharArray();// { 'b', 'u', 'g', 'a', 'b', 'o', 'o' };
         
         //har[] c_arr = g.toCharArray(); // returns a length 4 char array ['l','i','n','e']
 
@@ -106,7 +137,7 @@ public class PasswordDemo extends JPanel
         }
 
         //Zero out the password.
-        Arrays.fill(correctPassword,'0');
+        Arrays.fill(correctPassword,'0');*/
 
         return isCorrect;
     }
@@ -189,5 +220,10 @@ public class PasswordDemo extends JPanel
 		createAndShowGUI();
             }
         });
+    }
+    
+    public static String getPassword()
+    {
+    	return enteredPassword;
     }
 }
