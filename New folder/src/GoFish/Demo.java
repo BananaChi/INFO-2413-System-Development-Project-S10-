@@ -16,7 +16,7 @@ public class Demo {
         System.out.println("Press Y for YES");
 		System.out.println("Press N for NO");
 		char r = input.next().charAt(0);
-		if (r == 'Y'|| r == 'y') {
+		if (r == 'n'|| r == 'N') {
 			System.out.println("Rules of game:\n" + 
 					"1. Each player will get 5 cards.\n" + 
 					"2. Rest of the cards in deck will stay in a pile (facing down)\n" + 
