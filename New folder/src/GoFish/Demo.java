@@ -21,11 +21,11 @@ public class Demo {
         char mode = selectMode();
       
         if (mode=='1') {
-        	int l = displayLoginInfo();
-        	if (l==1) {
+        	char l = displayLoginInfo();
+        	if (l=='l' || l=='L') {
         		name1 = login();
          	}
-        	else if (l==2) {
+        	else if (l=='g' || l=='G') {
         		name1 = "Guest1";
            	}
         	else {
@@ -33,7 +33,7 @@ public class Demo {
         	}
         	Game GoFish = new Game(name1);
     		GoFish.playGame();
-    		if (l==1 || l==3) {
+    		if (l=='l' || l=='L' || l=='r' || l=='R') {
     			System.out.println(name1 + " Do you want to see your previous scores? ");
         		System.out.println("Press Y for YES");
         		System.out.println("Press N for NO");
@@ -46,12 +46,12 @@ public class Demo {
         
         if (mode=='2') {
         	System.out.println("Player1, please pick one of the following options: ");
-        	int loginOne = displayLoginInfo();
-        	if (loginOne==1) {
+        	char loginOne = displayLoginInfo();
+        	if (loginOne=='l' || loginOne=='L') {
         		System.out.println("Player1, please login:");
         		name1 = login();
         	}
-        	else if (loginOne==2) {
+        	else if (loginOne=='g' || loginOne == 'G') {
         		name1 = "Guest1";
            	}
         	else {
@@ -59,12 +59,12 @@ public class Demo {
         		name1 = register();
         	}
         	System.out.println("Player2, please pick one of the following options: ");
-        	int loginTwo = displayLoginInfo();
-        	if (loginTwo==1) {
+        	char loginTwo = displayLoginInfo();
+        	if (loginTwo=='l' || loginTwo=='L') {
         		System.out.println("Player1, please login:");
         		name2 = login();
         	}
-        	else if (loginTwo==2) {
+        	else if (loginTwo=='g' || loginTwo=='G') {
         		name2 = "Guest2";
            	}
         	else {
@@ -74,7 +74,7 @@ public class Demo {
         	
         	Game GoFish = new Game(name1, name2);
     		GoFish.playGame();
-    		if (loginOne==1 || loginOne==3) {
+    		if (loginOne=='l' || loginOne=='L' || loginOne=='r' || loginOne=='R') {
     			System.out.println(name1 + " Do you want to see your previous scores? ");
         		System.out.println("Press Y for YES");
         		System.out.println("Press N for NO");
@@ -85,7 +85,7 @@ public class Demo {
         			// Display all scores saved in database for name1 in ascending/descending order
         		}
     		}
-    		if (loginTwo==1 || loginTwo==3) {
+    		if (loginTwo=='l' || loginTwo=='L' || loginTwo=='r' || loginTwo=='R') {
     			System.out.println(name2 + " Do you want to see your previous scores? ");
         		System.out.println("Press Y for YES");
         		System.out.println("Press N for NO");
@@ -103,12 +103,19 @@ public class Demo {
         }
     }
 	
-	public static int displayLoginInfo() {
+	public static char displayLoginInfo() {
 		Scanner loginInfo = new Scanner(System.in);
-        System.out.println("Press 1 if you want to login to your account");
-        System.out.println("Press 2 if you want to play as a guest");
-        System.out.println("Press 3 if you are a new user and want to register");
-        int l = loginInfo.nextInt();
+        System.out.println("Press l if you want to login to your account");
+        System.out.println("Press g if you want to play as a guest");
+        System.out.println("Press r if you are a new user and want to register");
+        char l = loginInfo.next().charAt(0);
+        if (l == 'l' || l == 'L' || l=='g' || l=='G' || l=='r' || l=='R') {
+        	return l;
+        }
+        else {
+        	System.out.println("Invalid input");
+        	l = displayLoginInfo();
+        }
         return l;
 	}
 	
