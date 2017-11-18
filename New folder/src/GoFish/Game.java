@@ -110,6 +110,7 @@ public class Game {
     */
    private void displayState() {
        player1.display();
+       
        player2.display();
        // TODO
    }
