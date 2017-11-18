@@ -21,7 +21,19 @@ public class Game {
 	/** The input. */
 	private Scanner input;
 
-       
+	/**
+     * Instantiates a new game.
+     * <p>
+	 * Note: this constructor creates two computer players.
+	 * This is useful for presentation.
+	 * </p>
+     */
+    public Game() { 
+        player2 = new Computer("player2");
+        player1 = new Computer("player1"); 
+        input = new Scanner(System.in);
+        initializeGame();
+    }  
     /**
      * Instantiates a new game.
      * <p>
