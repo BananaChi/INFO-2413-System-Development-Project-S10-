@@ -1,8 +1,3 @@
-/* 
- * @author Ravnit Kaur (100329274)  
- * @version 1.0
- */
-
 
 /**
  * The class implements player strategy.
@@ -20,10 +15,10 @@ public class Computer extends Player {
 	}
 	
     /* This method implements play from Player class  */
-    public Card play(Game crazyEight, Card prev) {
+    public Card play(Game GoFish, Card prev) {
         Card card = searchForMatch(prev);
         if (card == null) {
-            card = drawForMatch(crazyEight, prev);
+            card = drawForMatch(GoFish, prev);
         }
         return card;
     }
@@ -49,13 +44,13 @@ public class Computer extends Player {
     /**
      * Draw cards from "draw pile" until a match is found.
      *
-     * @param crazyEight, gives access to the "draw pile".
+     * @param GoFish, gives access to the "draw pile".
      * @param prev, the previously played card.
      * @return a card that matches prev.
      */
-    private Card drawForMatch(Game crazyEight, Card prev) {
+    private Card drawForMatch(Game GoFish, Card prev) {
         while (true) {
-            Card card = crazyEight.draw();
+            Card card = GoFish.draw();
             System.out.println("\n*** " + name + " draws " + card + "\n");
             if (cardMatches(card, prev)) {
                 return card;
