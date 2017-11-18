@@ -5,6 +5,10 @@ package GoFish;
  * @author Ravnit Kaur
  * @version 1.0
  */
+<<<<<<< HEAD
+>>>>>>> ravnit
+=======
+package GoFish;
 >>>>>>> ravnit
 import java.util.ArrayList;
 

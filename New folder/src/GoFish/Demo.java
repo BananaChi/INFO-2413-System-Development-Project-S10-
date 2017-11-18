@@ -6,6 +6,10 @@ package GoFish;
  * @author Ravnit Kaur, @author Kim Tang
  * @version 1.0
  */
+<<<<<<< HEAD
+>>>>>>> ravnit
+=======
+package GoFish;
 >>>>>>> ravnit
 import java.util.Scanner;
 

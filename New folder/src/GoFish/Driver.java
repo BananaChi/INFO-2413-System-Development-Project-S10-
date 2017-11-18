@@ -5,6 +5,10 @@ package GoFish;
  * @author Kim Tang
  * @version 1.0
  */
+<<<<<<< HEAD
+>>>>>>> ravnit
+=======
+package GoFish;
 >>>>>>> ravnit
 import java.sql.*;
 

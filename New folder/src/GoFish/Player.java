@@ -1,10 +1,13 @@
-import java.util.Scanner;
-
 /* 
  * @author Ravnit Kaur, @author Kim Tang  
  * @version 1.0
  */
 package GoFish;
+<<<<<<< HEAD
+=======
+import java.util.Scanner;
+
+>>>>>>> ravnit
 /**
  * This class encapsulates a player in a game of crazy eights.
  */

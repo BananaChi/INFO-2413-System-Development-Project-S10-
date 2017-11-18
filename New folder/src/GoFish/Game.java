@@ -5,7 +5,11 @@ package GoFish;
  * @author Ravnit Kaur
  * @version 1.0
  */
+<<<<<<< HEAD
 
+=======
+package GoFish;
+>>>>>>> ravnit
 import java.util.Scanner;
 
 

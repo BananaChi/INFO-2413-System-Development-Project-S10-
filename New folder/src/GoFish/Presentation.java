@@ -2,6 +2,7 @@
  * @author Ravnit Kaur
  * @version 1.0
  */
+package GoFish;
 /**
  * The Class Presentation: Run this to see two player (computer) play GoFish.
  */
