@@ -150,7 +150,7 @@ public class Game {
     private void displayState() {
        	player1.display(); 
        	player2.display();
-        System.out.println(">>> You need to find a match for: " + discardPile.last());
+        System.out.println(">>> Find a match for: " + discardPile.last());
     }
 
     /**
@@ -175,16 +175,28 @@ public class Game {
      */
     public void playGame() {
         Player player = player1;
-        player1.display();
-        System.out.println(">>> You need to find a match for: " + discardPile.last());
-
-        // keep playing until there's a winner
-        while (!isDone()) {
-          //  displayState(); 
-            takeTurn(player);
-            player = nextPlayer(player);
-            waitForUser();
-            displayState();
+        if (player2.name == "Computer") {
+        	// keep playing until there's a winner
+        	while (!isDone()) {
+                	displayState(); 
+                    takeTurn(player);
+                    player = nextPlayer(player);
+                    waitForUser();
+        	}
+        }
+        else {
+        	// keep playing until there's a winner
+        	while (!isDone()) {
+        		player.display();
+        		System.out.println(">>> Find a match for: " + discardPile.last());
+        		takeTurn(player);
+        		waitForUser();
+        		for (int i = 0; i< 200; i++) {
+        			System.out.println(" ");
+        		}
+        		waitForUser();
+        		player = nextPlayer(player);
+        	}
         }
 
         // display the final score
