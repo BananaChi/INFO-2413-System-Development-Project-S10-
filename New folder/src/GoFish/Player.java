@@ -78,8 +78,10 @@ public abstract class Player {
      * Display the cards in player's hand.
      */
     public void display() {
-    	System.out.println(name + "'s hand:");
-        System.out.println(hand);
+    	if (name != "Computer") {
+    		System.out.println(name + "'s hand:");
+    		System.out.println(hand);
+        }
     }
 
     /**
