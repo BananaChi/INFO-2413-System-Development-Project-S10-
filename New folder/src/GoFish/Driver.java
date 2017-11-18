@@ -1,5 +1,3 @@
-package GoFish;
-
 import java.sql.*;
 
 public class Driver {
@@ -12,8 +10,6 @@ public class Driver {
 		String username = "kim";
 		String password = "kim";
 		int score = 2;
-		
-		
 		
 	}
 	
@@ -69,7 +65,6 @@ public class Driver {
 	
 	public static void getPlayerScore(String username)
 	{
-		int sum = 0;
 		
 		try {
 			//1. Get a connection to database with root user and blank password
@@ -79,14 +74,14 @@ public class Driver {
 			Statement myStmt = myConn.createStatement();
 			
 			//3. Execute SQL query
-			ResultSet myRs = myStmt.executeQuery("select * from scores where username = '" + username + "'");
+			ResultSet myRs = myStmt.executeQuery("select * from scores where username = '" + username + "' order by scores desc;");
 			
 			//4. Process the result set
 			while (myRs.next()) 
 			{
-				sum = sum + myRs.getInt("scores");
+				System.out.println(myRs.getString("username") + "   " +  myRs.getInt("scores"));
 			}
-			System.out.println(sum);
+			
 		}
 		catch (Exception exc) {
 			exc.printStackTrace();
@@ -123,16 +118,20 @@ public class Driver {
 			
 			//2. Create a statement
 			Statement myStmt = myConn.createStatement();
-			
+	
 			//3. Execute SQL query
 			ResultSet myRs = myStmt.executeQuery("select password from login where username = '" + username + "'");
 			
-			//4. Process the result set
-			return myRs.getString("password");
+			//4. Process the result set if not empty
+			while (myRs.next() && myRs.getString("password") != null)
+			{
+				return myRs.getString("password");
+			}
+		    return myRs.getString("password");
 		}
 		catch (Exception exc) {
 			exc.printStackTrace();
-			return null;
+			return "ThisPasswordDoesReallyNotExistSoPleaseEnterANewPasswordAndLetNobodySeeThisCodeBecauseItIsSoBad";
 		}
 	}
 	

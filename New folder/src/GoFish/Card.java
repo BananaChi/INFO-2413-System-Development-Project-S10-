@@ -3,10 +3,10 @@
  * @version 1.0
  */
 
+
 /**
  * This class represents a standard playing card.
  */
-package GoFish;
 public class Card {
 	
 	/**  A suit symbol on a card. */

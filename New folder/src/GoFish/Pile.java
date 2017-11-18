@@ -1,10 +1,11 @@
-package GoFish;
 import java.util.ArrayList;
 
 /**
  * This class represents a pile: a deck of cards that acts 
- * as either extra cards or Stock
+ * as either Waste or Stock
  * 
+ * Stock: a pile of cards, face down, to create a draw pile.
+ * Waste: a pile of discarded cards.
  */
 public class Pile extends Deck {
 	
