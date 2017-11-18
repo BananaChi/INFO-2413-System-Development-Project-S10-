@@ -2,6 +2,7 @@
  * @author Kim Tang
  * @version 1.0
  */
+package GoFish;
 import java.sql.*;
 
 public class Driver {

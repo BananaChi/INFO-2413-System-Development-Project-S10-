@@ -1,9 +1,9 @@
-import java.util.Scanner;
-
 /* 
  * @author Ravnit Kaur, @author Kim Tang  
  * @version 1.0
  */
+package GoFish;
+import java.util.Scanner;
 
 /**
  * This class encapsulates a player in a game of crazy eights.

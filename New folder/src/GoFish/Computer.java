@@ -1,4 +1,8 @@
-
+/* 
+ * @author Ravnit Kaur
+ * @version 1.0
+ */
+package GoFish;
 /**
  * The class implements player strategy.
  * It can be used to play against computer.
