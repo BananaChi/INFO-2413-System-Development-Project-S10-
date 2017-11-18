@@ -1,11 +1,11 @@
-<<<<<<< HEAD
+
 package GoFish;
-=======
+
 /* 
  * @author Ravnit Kaur
  * @version 1.0
  */
->>>>>>> ravnit
+
 import java.util.Scanner;
 
 
