@@ -1,6 +1,11 @@
+package GoFish;
+
 import java.util.Scanner;
 
 public class Demo {
+	
+	public static int waiting = 0;
+	public static boolean register = false;
 
 	/**
 	 * The main method.
@@ -123,24 +128,25 @@ public class Demo {
 		System.out.println("Please enter your usernname: ");
 		Scanner input = new Scanner(System.in);
 		String username = input.nextLine();
+		
 		while(Driver.usernameExists(username)==false)
 		{
 			System.out.println("Please enter your usernname: ");
 			username = input.nextLine();
 		}
-		System.out.println("Please enter your password: ");
-		String password = input.nextLine();
-		if (Driver.getPlayerPassword(username).equals(password)) {
-			System.out.println("You are logged in successfully!");
-		}
-		else{
-			System.out.println("Username or password is incorrect");
-			login();
+		//String password = new Demo().passwordExample();
+		System.out.println("Please enter your password in the new window: ");
+		waiting = 1;
+		PasswordDemo.createAndShowGUI(username);
+		while (waiting == 1)
+		{
+			System.out.print("");
 		}
 		return username;
 	}
 	
 	public static String register() {
+		Demo.setRegister();
 		System.out.println("Please choose a username: ");
 		Scanner input = new Scanner(System.in);
 		String username = input.nextLine();
@@ -152,12 +158,38 @@ public class Demo {
 		}
 		else {
 			System.out.println("Please enter a password: ");
-		  	String password = input.nextLine();
+			waiting = 1;
+			PasswordDemo.createAndShowGUI(username);
+			while (waiting == 1)
+			{
+				System.out.print("");
+			}
+			String password = PasswordDemo.getPassword();
 		  	Driver.addUser(username, password);
 		  	System.out.println("You have successfully registered as " + username);
 		  	loginname = username;
 		}
 		 return loginname;
+	}
+	
+	public static int getWaiting()
+	{
+		return waiting;
+	}
+	
+	public static void setWaiting(int n)
+	{
+		waiting=n;
+	}
+	
+	public static boolean getRegister()
+	{
+		return register;
+	}
+	
+	public static void setRegister()
+	{
+		register = true;
 	}
 	
 	public static char rules() {

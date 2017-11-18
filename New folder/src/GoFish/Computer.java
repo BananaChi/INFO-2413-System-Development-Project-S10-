@@ -1,4 +1,4 @@
-
+package GoFish;
 /**
  * The class implements player strategy.
  * It can be used to play against computer.
