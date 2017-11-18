@@ -12,32 +12,11 @@ public class Demo {
     	System.out.println("===================================");
         System.out.println("Welcome to Go Fish!");
         System.out.println("===================================\n");
-        System.out.println("Do you know rules of the game?");
-        System.out.println("Press Y for YES");
-		System.out.println("Press N for NO");
-		char r = input.next().charAt(0);
-		if (r == 'n'|| r == 'N') {
-			System.out.println("Rules of game:\n" + 
-					"1. Each player will get 5 cards.\n" + 
-					"2. Rest of the cards in deck will stay in a pile (facing down)\n" + 
-					"3. One card from the pile (pile in step2) will be turned up.\n" + 
-					"4. Player1 will have to find a matching card (from his hand) with the card in step3.\n" + 
-					"   Here matching card means, a card with either the same rank or the same suit.\n" + 
-					"For example: If there is an ace of spade, you need to look either for an ace or any card of spade. \n" +
-					"5. If he/she finds a match, he/she will throw the matching card in discard pile (another pile).\n" + 
-					"6. If he/she does not have a matching card, he/she will \"Go Fish\", means he will keep on drawing cards from pile(pile in step 2) until he finds a match.\r\n" + 
-					"7. When he throws a matching card, second player has to find a card, matching with the card thrown by player 1.\r\n" + 
-					"\r\n" + 
-					"How will game get over and how are scores calculated?\r\n" + 
-					"1. If either player runs out of cards, game is over.\r\n" + 
-					"2. The player who is left with the cards will get negative points.\r\n" + 
-					"3. For each left over card with a rank (Ace to 10), he/she will get minus points of that rank. For example, if he/she has a card with rank 5, he will get -5\r\n" + 
-					"4. For each left over face card (Jack, Queen, King), he/she will get -10 points.\r\n" + 
-					"\r\n" + 
-					"");
-			System.out.println("===================================\n");
-		}
-		try {
+       
+        try {
+        
+		rules();
+				
         System.out.println("Press 1 to play against computer");
         System.out.println("Press 2 to play against another player");
        
@@ -177,6 +156,44 @@ public class Demo {
 		  	loginname = username;
 		}
 		 return loginname;
+	}
+	
+	public static char rules() {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Do you know rules of the game?");
+		System.out.println("Press Y for YES");
+		System.out.println("Press N for NO");
+		char r = input.next().charAt(0);
+		if (r == 'n'|| r == 'N') {
+			System.out.println("Rules of game:\n" + 
+					"1. Each player will get 5 cards.\n" + 
+					"2. Rest of the cards in deck will stay in a pile (facing down)\n" + 
+					"3. One card from the pile (pile in step2) will be turned up.\n" + 
+					"4. Player1 will have to find a matching card (from his hand) with the card in step3.\n" + 
+					"   Here matching card means, a card with either the same rank or the same suit.\n" + 
+					"For example: If there is an ace of spade, you need to look either for an ace or any card of spade. \n" +
+					"5. If he/she finds a match, he/she will throw the matching card in discard pile (another pile).\n" + 
+					"6. If he/she does not have a matching card, he/she will \"Go Fish\", means he will keep on drawing cards from pile(pile in step 2) until he finds a match.\r\n" + 
+					"7. When he throws a matching card, second player has to find a card, matching with the card thrown by player 1.\r\n" + 
+					"\r\n" + 
+					"How will game get over and how are scores calculated?\r\n" + 
+					"1. If either player runs out of cards, game is over.\r\n" + 
+					"2. The player who is left with the cards will get negative points.\r\n" + 
+					"3. For each left over card with a rank (Ace to 10), he/she will get minus points of that rank. For example, if he/she has a card with rank 5, he will get -5\r\n" + 
+					"4. For each left over face card (Jack, Queen, King), he/she will get -10 points.\r\n" + 
+					"\r\n" + 
+					"");
+			System.out.println("===================================\n");
+		}
+		else if (r == 'Y' || r =='y') {
+			return r;
+		}
+		else {
+			System.out.println("Invalid input");
+			System.out.println("Please enter \"Y\" for YES or \"N\" for NO");
+			r = rules();
+		}
+		return r;
 	}
 
 }
