@@ -1,10 +1,9 @@
-<<<<<<< HEAD
-=======
+
 /* 
  * @author Ravnit Kaur
  * @version 1.0
  */
->>>>>>> ravnit
+
 package GoFish;
 /**
  * The class implements player strategy.

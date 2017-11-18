@@ -6,7 +6,6 @@ package GoFish;
 /**
  * The Class Presentation: Run this to see two player (computer) play GoFish.
  */
-package GoFish;
 
 public class Presentation {
 public static void main(String[] args) {
