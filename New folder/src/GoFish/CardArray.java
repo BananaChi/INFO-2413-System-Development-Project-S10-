@@ -2,13 +2,14 @@
  * @author Ravnit Kaur (100329274) 
  * @version 1.0
  */
-
+package GoFish;
 import java.util.ArrayList;
 
 /**
  * This abstract class encapsulates 
  * an array of playing cards. 
  */
+
 public abstract class CardArray 
 {
 	

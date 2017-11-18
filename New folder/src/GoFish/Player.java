@@ -2,7 +2,7 @@
  * @author Ravnit Kaur (100329274)  
  * @version 1.0
  */
-
+package GoFish;
 /**
  * This class encapsulates a player in a game of crazy eights.
  */

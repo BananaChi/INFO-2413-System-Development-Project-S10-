@@ -1,3 +1,4 @@
+package GoFish;
 import java.sql.*;
 
 public class Driver {
