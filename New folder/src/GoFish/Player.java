@@ -95,8 +95,7 @@ public abstract class Player {
     public void saveScore() {
     	int scoreValue = score();
     	System.out.println(name);
-    	//String pw = Driver.getPlayerPassword(name);
-    			
+        			
     	if(name != "Guest1" && name != "Guest2") 
     	{
     		String pw = Driver.getPlayerPassword(name);

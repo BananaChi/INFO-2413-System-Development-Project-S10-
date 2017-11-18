@@ -130,7 +130,6 @@ public class Demo {
 		}
 		System.out.println("Please enter your password: ");
 		String password = input.nextLine();
-		//String password = new jline.ConsoleReader().readLine(new Character('*'));
 		if (Driver.getPlayerPassword(username).equals(password)) {
 			System.out.println("You are logged in successfully!");
 		}

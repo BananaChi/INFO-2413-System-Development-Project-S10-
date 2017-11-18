@@ -20,12 +20,10 @@ public class User extends Player {
 
 	/* This method implements play from Player class  */
     public Card play(Game GoFish, Card prev) {
-    	// Prompt the user
-    	System.out.print("Select a card from your hand \n   or enter 0 to go fish! (draw a new card): ");
-    	
+    	   	
     	// Get the card number from the user
-    	int n = input.nextInt();
-    	
+    	int n = promptUser();
+    	    	   	
     	Card card;
     	
     	// When the user wants to draw a new card from draw Pile
@@ -70,4 +68,18 @@ public class User extends Player {
     	    return card;
     	}
     }  
+    
+    public int promptUser() {
+    	// Prompt the user
+    	System.out.print("Select a card from your hand \n   or enter 0 to go fish! (draw a new card): ");
+    	
+    	// Get the card number from the user
+    	int n = input.nextInt();
+    	
+    	if (n > hand.size()) {
+    		System.out.println("Invalid input! Card does not exist");
+    		n = promptUser();
+    	}
+    	return n;
+    }
 }
