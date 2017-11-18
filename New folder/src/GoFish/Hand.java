@@ -1,4 +1,7 @@
-
+/* 
+ * @author Ravnit Kaur
+ * @version 1.0
+ */
 /**
  * This class represents a hand: the cards held by one player.
  */

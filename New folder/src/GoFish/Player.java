@@ -1,5 +1,5 @@
 /* 
- * @author Ravnit Kaur (100329274)  
+ * @author Ravnit Kaur, @author Kim Tang  
  * @version 1.0
  */
 
@@ -81,8 +81,9 @@ public abstract class Player {
     	if (name != "Computer") {
     		System.out.println(name + "'s hand:");
     		System.out.println(hand);
-        }
+    	}
     }
+    
 
     /**
      * Display the player's name and score.

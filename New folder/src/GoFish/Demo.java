@@ -1,3 +1,7 @@
+/* 
+ * @author Ravnit Kaur, @author Kim Tang
+ * @version 1.0
+ */
 import java.util.Scanner;
 
 public class Demo {

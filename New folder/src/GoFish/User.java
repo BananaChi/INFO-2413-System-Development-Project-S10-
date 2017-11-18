@@ -1,3 +1,7 @@
+/* 
+ * @author Ravnit Kaur
+ * @version 1.0
+ */
 import java.util.Scanner;
 
 /**

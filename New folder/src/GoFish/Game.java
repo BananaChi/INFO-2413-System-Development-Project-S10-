@@ -1,3 +1,7 @@
+/* 
+ * @author Ravnit Kaur
+ * @version 1.0
+ */
 import java.util.Scanner;
 
 
@@ -144,8 +148,8 @@ public class Game {
      * Displays the state of the game. 
      */
     private void displayState() {
-       	player1.display();        
-        player2.display();
+       	player1.display(); 
+       	player2.display();
         System.out.println(">>> You need to find a match for: " + discardPile.last());
     }
 
@@ -171,13 +175,16 @@ public class Game {
      */
     public void playGame() {
         Player player = player1;
+        player1.display();
+        System.out.println(">>> You need to find a match for: " + discardPile.last());
 
         // keep playing until there's a winner
         while (!isDone()) {
-            displayState(); 
+          //  displayState(); 
             takeTurn(player);
             player = nextPlayer(player);
             waitForUser();
+            displayState();
         }
 
         // display the final score
