@@ -1,3 +1,7 @@
+/* 
+ * @author Kim Tang
+ * @version 1.0
+ */
 package GoFish;
 
 import javax.swing.*;
