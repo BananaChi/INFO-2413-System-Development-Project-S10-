@@ -77,7 +77,7 @@ public class PasswordDemo extends JPanel
             	if(Demo.getRegister() == true)
             	{
             		JOptionPane.showMessageDialog(controllingFrame,
-    	                    "Wowser! Nice password mate!");
+    	                    "Wow! Nice password mate!");
     	                     Demo.setWaiting(0);
     	                     return;
             	}

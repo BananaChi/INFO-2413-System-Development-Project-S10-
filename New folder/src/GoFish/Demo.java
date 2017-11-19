@@ -90,8 +90,9 @@ public class Demo {
         		char answer = input.next().charAt(0);
         		if (answer == 'Y'|| answer == 'y') 
         		{
+        			// Display all scores saved in database for name1 in descending order
         			Driver.getPlayerScore(name1);
-        			// Display all scores saved in database for name1 in ascending/descending order
+        			
         		}
     		}
     		if (loginTwo=='l' || loginTwo=='L' || loginTwo=='r' || loginTwo=='R') {
@@ -100,8 +101,8 @@ public class Demo {
         		System.out.println("Press N for NO");
         		char answer = input.next().charAt(0);
         		if (answer == 'Y'|| answer == 'y') {
+        			// Display all scores saved in database for name1 in descending order
         			Driver.getPlayerScore(name2);
-        			// Display all scores saved in database for name2 in ascending/descending order
         		}
     		}
     		
@@ -135,6 +136,7 @@ public class Demo {
 		
 		while(Driver.usernameExists(username)==false)
 		{
+			System.out.println("Username does not exist");
 			System.out.println("Please enter your usernname: ");
 			username = input.nextLine();
 		}
