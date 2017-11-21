@@ -27,9 +27,19 @@ public class User extends Player {
 
 	/* This method implements play from Player class  */
     public Card play(Game GoFish, Card prev) {
+    	
+    	int loop = 1;
     	   	
     	// Get the card number from the user
     	int n = promptUser();
+    	
+    	if (n==0)
+    	{
+    		Timer.Start();
+    		loop=0;
+    	}
+    	
+    	
     	    	   	
     	Card card;
     	
@@ -40,8 +50,20 @@ public class User extends Player {
     		hand.addCard(card);
     		System.out.println(name + "'s hand:");
     		System.out.println(hand);
+    		if (loop==0)
+    		{
+    			System.out.println("Timer ended.");
+    			Timer.End();
+    			loop=1;
+    		}
     		System.out.print("Select a card from your hand \n   or enter 0 to go fish! (draw a new card): ");
     	    n = input.nextInt();
+    	    if (n==0)
+    	    {
+    	    	System.out.println("Timer started.");
+    	    	Timer.Start();
+    	    	loop=0;
+    	    }
     	}
     		
     	card = hand.getCard(n-1);
