@@ -16,7 +16,7 @@ public class Demo {
 	 *
 	 * @param args the arguments
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) { //timed
 		Scanner input = new Scanner(System.in);
     	System.out.println("===================================");
         System.out.println("Welcome to Go Fish!");
@@ -32,12 +32,15 @@ public class Demo {
         if (mode=='1') {
         	char l = displayLoginInfo();
         	if (l=='l' || l=='L') {
+        		Timer.End();
         		name1 = login();
          	}
         	else if (l=='g' || l=='G') {
+        		Timer.End();
         		name1 = "Guest1";
            	}
         	else {
+        		Timer.End();
         		name1 = register();
         	}
         	Game GoFish = new Game(name1);
@@ -57,26 +60,32 @@ public class Demo {
         	System.out.println("Player1, please pick one of the following options: ");
         	char loginOne = displayLoginInfo();
         	if (loginOne=='l' || loginOne=='L') {
+        		Timer.End();
         		System.out.println("Player1, please login:");
         		name1 = login();
         	}
         	else if (loginOne=='g' || loginOne == 'G') {
+        		Timer.End();
         		name1 = "Guest1";
            	}
         	else {
+        		Timer.End();
         		System.out.println("Player1, please register: ");
         		name1 = register();
         	}
         	System.out.println("Player2, please pick one of the following options: ");
         	char loginTwo = displayLoginInfo();
         	if (loginTwo=='l' || loginTwo=='L') {
+        		Timer.End();
         		System.out.println("Player1, please login:");
         		name2 = login();
         	}
         	else if (loginTwo=='g' || loginTwo=='G') {
+        		Timer.End();
         		name2 = "Guest2";
            	}
         	else {
+        		Timer.End();
         		System.out.println("Player1, please register: ");
         		name2 = register();
         	}
@@ -88,10 +97,12 @@ public class Demo {
         		System.out.println("Press Y for YES");
         		System.out.println("Press N for NO");
         		char answer = input.next().charAt(0);
+        		Timer.Start();
         		if (answer == 'Y'|| answer == 'y') 
         		{
         			// Display all scores saved in database for name1 in descending order
         			Driver.getPlayerScore(name1);
+        			Timer.End();
         			
         		}
     		}
@@ -100,9 +111,11 @@ public class Demo {
         		System.out.println("Press Y for YES");
         		System.out.println("Press N for NO");
         		char answer = input.next().charAt(0);
+        		Timer.Start();
         		if (answer == 'Y'|| answer == 'y') {
         			// Display all scores saved in database for name1 in descending order
         			Driver.getPlayerScore(name2);
+        			Timer.End();
         		}
     		}
     		
@@ -113,33 +126,39 @@ public class Demo {
         }
     }
 	
-	public static char displayLoginInfo() {
+	public static char displayLoginInfo() { //timed
 		Scanner loginInfo = new Scanner(System.in);
         System.out.println("Press l if you want to login to your account");
         System.out.println("Press g if you want to play as a guest");
         System.out.println("Press r if you are a new user and want to register");
         char l = loginInfo.next().charAt(0);
+        Timer.Start();
         if (l == 'l' || l == 'L' || l=='g' || l=='G' || l=='r' || l=='R') {
         	return l;
         }
         else {
         	System.out.println("Invalid input");
+        	Timer.End();
         	l = displayLoginInfo();
         }
         return l;
 	}
 	
-	public static String login() {
+	public static String login() { //timed
 		System.out.println("Please enter your usernname: ");
 		Scanner input = new Scanner(System.in);
 		String username = input.nextLine();
+		Timer.Start();
 		
 		while(Driver.usernameExists(username)==false)
 		{
 			System.out.println("Username does not exist");
 			System.out.println("Please enter your usernname: ");
+			Timer.End();
 			username = input.nextLine();
+			Timer.Start();
 		}
+		Timer.End();
 		//String password = new Demo().passwordExample();
 		System.out.println("Please enter your password in the new window: ");
 		waiting = 1;
@@ -151,18 +170,21 @@ public class Demo {
 		return username;
 	}
 	
-	public static String register() {
+	public static String register() { //timed
 		Demo.setRegister();
 		System.out.println("Please choose a username: ");
 		Scanner input = new Scanner(System.in);
 		String username = input.nextLine();
+		Timer.Start();
 		String loginname = null;
 		
 		if (Driver.usernameExists(username) == true) {
 			System.out.println(username + " is not available.");
+			Timer.End();
 	 		loginname = register();
 		}
 		else {
+			Timer.End();
 			System.out.println("Please enter a password: ");
 			waiting = 1;
 			PasswordDemo.createAndShowGUI(username);
@@ -173,6 +195,7 @@ public class Demo {
 			String password = PasswordDemo.getPassword();
 		  	Driver.addUser(username, password);
 		  	System.out.println("You have successfully registered as " + username);
+		  	Timer.End();
 		  	loginname = username;
 		}
 		 return loginname;
@@ -198,12 +221,13 @@ public class Demo {
 		register = true;
 	}
 	
-	public static char rules() {
+	public static char rules() { //timed
 		Scanner input = new Scanner(System.in);
 		System.out.println("Do you know rules of the game?");
 		System.out.println("Press Y for YES");
 		System.out.println("Press N for NO");
 		char r = input.next().charAt(0);
+		Timer.Start();
 		if (r == 'n'|| r == 'N') {
 			System.out.println("Rules of game:\n" + 
 					"1. Each player will get 5 cards.\n" + 
@@ -224,30 +248,37 @@ public class Demo {
 					"\r\n" + 
 					"");
 			System.out.println("===================================\n");
+			Timer.End();
 		}
 		else if (r == 'Y' || r =='y') {
+			Timer.End();
 			return r;
 		}
 		else {
 			System.out.println("Invalid input");
 			System.out.println("Please enter \"Y\" for YES or \"N\" for NO");
+			Timer.End();
 			r = rules();
 		}
 		return r;
 	}
 	
-	public static char selectMode() {
+	public static char selectMode() { //timed
 		Scanner input = new Scanner(System.in);
 		System.out.println("Press 1 to play against computer");
         System.out.println("Press 2 to play against another player");
 		char mode = input.next().charAt(0);
+		Timer.Start();
 		if (mode == '1' || mode == '2') {
+			Timer.End();
 			return mode;
 		}
 		else {
 			System.out.println("Invalid input");
+			Timer.End();
 			mode = selectMode();
 		}
+		Timer.End();
 		return mode;
 	}
 }

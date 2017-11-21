@@ -72,6 +72,7 @@ public class Game {
     	player2 = new User(name2);
     	input = new Scanner(System.in);
     	initializeGame();
+    	Timer.End();
     }
 
 
@@ -79,6 +80,7 @@ public class Game {
      * Initializes the state of the game.
      */
     private void initializeGame() {
+    	Timer.Start();
         // Create and shuffle a pack (full deck)
         Deck pack = new Deck();
         pack.shuffle();
@@ -95,6 +97,7 @@ public class Game {
         // put the rest of the deck face down
         drawPile = new Pile("Draw pile");
         pack.dealAll(drawPile);
+        
     }
     
 
@@ -155,6 +158,7 @@ public class Game {
        	player1.display(); 
        	player2.display();
         System.out.println(">>> Find a match for: " + discardPile.last());
+        Timer.End();
     }
 
     /**
@@ -192,6 +196,7 @@ public class Game {
         	// keep playing until there's a winner
         	while (!isDone()) {
         		player.display();
+        		Timer.End();
         		System.out.println(">>> Find a match for: " + discardPile.last());
         		takeTurn(player);
         		waitForUser();

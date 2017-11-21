@@ -66,12 +66,14 @@ public class PasswordDemo extends JPanel
 
         if (OK.equals(cmd)) { //Process the password.
             char[] input = passwordField.getPassword();
+            Timer.Start();
             if (isPasswordCorrect(input)) {
             	if(Demo.getRegister() == false)
             	{
 	                JOptionPane.showMessageDialog(controllingFrame,
 	                    "Success! You typed the right password.");
 	                     Demo.setWaiting(0);
+	                     Timer.End();
 	                     return;
             	}
             	if(Demo.getRegister() == true)
@@ -79,9 +81,11 @@ public class PasswordDemo extends JPanel
             		JOptionPane.showMessageDialog(controllingFrame,
     	                    "Wow! Nice password mate!");
     	                     Demo.setWaiting(0);
+    	                     Timer.End();
     	                     return;
             	}
             } else {
+            	Timer.End();
                 JOptionPane.showMessageDialog(controllingFrame,
                     "Invalid password. Try again.",
                     "Error Message",
