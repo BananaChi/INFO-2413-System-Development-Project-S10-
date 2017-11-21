@@ -32,10 +32,10 @@ public class User extends Player {
     	   	
     	// Get the card number from the user
     	int n = promptUser();
-    	
+    	Timer.Start();
     	if (n==0)
     	{
-    		Timer.Start();
+    		//Timer.Start();
     		loop=0;
     	}
     	
@@ -80,17 +80,38 @@ public class User extends Player {
             		" \nSelect a matching card from your hand\n   "
         					+ "or enter 0 to go fish! (draw a new card): ");
            		n = input.nextInt();
+           		
+           		if (n==0)
+           		{
+           			loop=0;
+           		}
+           		
+           		Timer.Start();
+           		
         		if (n > 0)
+        		{
         			card = hand.getCard(n-1);
+        			Timer.End();
+        		}
+   
         		else{
         		    while (n == 0){
         		    	card = GoFish.draw();
+        		    	if (loop==0)
+        		    		{
+        		    		   Timer.End();
+        		    		}
         		    	System.out.println("\n*** " + name + " draws " + card + "\n");
         		    	hand.addCard(card);
         		   		System.out.println(name + "'s hand:");
         		   		System.out.println(hand);
         		   		System.out.print("Select a card from your hand \n   or enter 0 to go fish! (draw a new card): ");
         		   	    n = input.nextInt();
+        		   	    if (n==0)
+        		   	    {
+        		   	    	loop=0;
+        		   	    	Timer.Start();
+        		   	    }
         		    	}
         			}
 			}

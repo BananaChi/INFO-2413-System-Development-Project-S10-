@@ -239,7 +239,7 @@ public class Game {
      * Waits for the user to press enter.
      */
     private void waitForUser() {
-    	
+    	Timer.End();
     	System.out.println(">>> Press Enter to continue! >>>\n");
         input.nextLine();
         Timer.Start();
