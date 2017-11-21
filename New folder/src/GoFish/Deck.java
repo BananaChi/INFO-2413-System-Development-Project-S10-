@@ -1,6 +1,11 @@
+package GoFish;
+
+/* 
+ * @author Ravnit Kaur
+ * @version 1.0
+ */
 
 import java.util.Collections;
-
 
 /**
  * This class represents a standard deck (52 playing cards)

@@ -1,7 +1,8 @@
 /* 
- * @author Ravnit Kaur (100329274) 
+ * @author Ravnit Kaur
  * @version 1.0
  */
+package GoFish;
 
 /**
  * This class represents a standard playing card.
