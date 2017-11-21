@@ -1,8 +1,5 @@
 package GoFish;
 
-import java.util.concurrent.TimeUnit;
-import java.math.BigDecimal;
-
 public class Timer {
 	private static long time1; //start
 	private static long time2; //end
