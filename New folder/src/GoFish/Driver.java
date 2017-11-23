@@ -190,5 +190,24 @@ public class Driver {
 			exc.printStackTrace();
 		}
 	}
+	
+	public static void addTime(double t)
+	{
+		
+		try {
+			//1. Get a connection to database with root user and blank password
+			Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gofish", "root", "");
+			
+			//2. Create a statement
+			Statement myStmt = myConn.createStatement();
+			
+			//3. Execute SQL query
+			myStmt.executeUpdate("insert into time (timed) values ('" + t + "');");
+			
+		}
+		catch (Exception exc) {
+			exc.printStackTrace();
+		}
+	}
 
 }

@@ -102,7 +102,6 @@ public abstract class Player {
      */
     public void saveScore() {
     	int scoreValue = score();
-    //	System.out.println(name);
         			
     	if(name != "Guest1" && name != "Guest2" && name!="Computer") 
     	{
