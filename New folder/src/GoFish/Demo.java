@@ -77,7 +77,7 @@ public class Demo {
         	char loginTwo = displayLoginInfo();
         	if (loginTwo=='l' || loginTwo=='L') {
         		Timer.End();
-        		System.out.println("Player1, please login:");
+        		System.out.println("Player2, please login:");
         		name2 = login();
         	}
         	else if (loginTwo=='g' || loginTwo=='G') {
