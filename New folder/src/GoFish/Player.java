@@ -106,7 +106,7 @@ public abstract class Player {
     	if(name != "Guest1" && name != "Guest2" && name!="Computer") 
     	{
     		String pw = Driver.getPlayerPassword(name);
-    		Driver.addScore(name, pw, scoreValue);// add scores to database for name
+    		Driver.addScore(name, scoreValue);// add scores to database for name
     	}
     }
 

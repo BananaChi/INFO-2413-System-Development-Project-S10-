@@ -262,7 +262,7 @@ public class Demo {
 		}
 		return r;
 	}
-	
+
 	public static char selectMode() { //timed
 		Scanner input = new Scanner(System.in);
 		System.out.println("Press 1 to play against computer");
