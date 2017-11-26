@@ -132,9 +132,10 @@ public class User extends Player {
     	System.out.print("Select a card from your hand \n   or enter 0 to go fish! (draw a new card): ");
     	
     	// Get the card number from the user
-    	String in = input. nextLine();
+    	String in = input.nextLine();
     	int n;
     	Timer.Start();
+    	// When user enters a digit
     	if (in.matches("\\d+")) {
     		n = Integer.parseInt(in);
     	 	// When user enters larger value than hand size or a negative value
@@ -144,6 +145,7 @@ public class User extends Player {
     			n = promptUser();
     		}
     	}
+    	// When user does not enter a digit
     	else {
     		System.out.println("Invalid input!");
     		n = promptUser();
