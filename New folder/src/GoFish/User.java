@@ -52,13 +52,13 @@ public class User extends Player {
     		System.out.println(hand);
     		if (loop==0)
     		{
-    			System.out.println("Timer ended.");
+    			//System.out.println("Timer ended.");
     			Timer.End();
     			loop=1;
     		}
     		System.out.print("Select a card from your hand \n   or enter 0 to go fish! (draw a new card): ");
     	    n = input.nextInt();
-    	    System.out.println("Timer started.");
+    	    //System.out.println("Timer started.");
 	    	Timer.Start();
     	    if (n==0)
     	    {
@@ -72,7 +72,7 @@ public class User extends Player {
     	// When the card chosen by player matches the previous card
     	if(Player.cardMatches(card, prev))
     	{
-    		System.out.println("This is madness");
+    		//System.out.println("This is madness");
     		Timer.End();
     	    return hand.popCard(n-1);
     	}
