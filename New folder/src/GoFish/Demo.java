@@ -46,13 +46,12 @@ public class Demo {
         	Game GoFish = new Game(name1);
     		GoFish.playGame();
     		if (l=='l' || l=='L' || l=='r' || l=='R') {
-    			System.out.println(name1 + " Do you want to see your previous scores? ");
-        		System.out.println("Press Y for YES");
-        		System.out.println("Press N for NO");
-        		char answer = input.next().charAt(0);
+    			System.out.print(name1+ ", ");
+        		char answer = displayScores();
         		if (answer == 'Y'|| answer == 'y') {
         			Driver.getPlayerScore(name1);// Display all scores saved in database for name1 in ascending/descending order
         		}
+   
     		}
     	}
         
@@ -93,10 +92,8 @@ public class Demo {
         	Game GoFish = new Game(name1, name2);
     		GoFish.playGame();
     		if (loginOne=='l' || loginOne=='L' || loginOne=='r' || loginOne=='R') {
-    			System.out.println(name1 + " Do you want to see your previous scores? ");
-        		System.out.println("Press Y for YES");
-        		System.out.println("Press N for NO");
-        		char answer = input.next().charAt(0);
+    			System.out.print(name1+ ", ");
+        		char answer = displayScores();
         		Timer.Start();
         		if (answer == 'Y'|| answer == 'y') 
         		{
@@ -107,10 +104,8 @@ public class Demo {
         		}
     		}
     		if (loginTwo=='l' || loginTwo=='L' || loginTwo=='r' || loginTwo=='R') {
-    			System.out.println(name2 + " Do you want to see your previous scores? ");
-        		System.out.println("Press Y for YES");
-        		System.out.println("Press N for NO");
-        		char answer = input.next().charAt(0);
+    			System.out.print(name2+ ", ");
+        		char answer = displayScores();
         		Timer.Start();
         		if (answer == 'Y'|| answer == 'y') {
         			// Display all scores saved in database for name1 in descending order
@@ -280,5 +275,24 @@ public class Demo {
 		}
 		Timer.End();
 		return mode;
+	}
+	
+	public static char displayScores() {
+		Scanner input = new Scanner(System.in);
+		System.out.println(" Do you want to see your previous scores? ");
+		System.out.println("Press Y for YES");
+		System.out.println("Press N for NO");		
+		char answer = input.next().charAt(0);
+		if (answer == 'Y'|| answer == 'y' ) {
+			return answer;
+		}
+		else if (answer == 'N' || answer == 'n') {
+			return answer;
+		}
+		else {
+			System.out.println("Invalid input");
+			answer = displayScores();
+		}
+		return answer;
 	}
 }
