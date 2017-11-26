@@ -135,7 +135,8 @@ public class User extends Player {
     	int n = input.nextInt();
     	Timer.Start();
     	
-    	if (n > hand.size()) {
+    	// When user enters invalid input
+    	if (n > hand.size() || n < 0) {
     		Timer.End();
     		System.out.println("Invalid input! Card does not exist");
     		n = promptUser();
