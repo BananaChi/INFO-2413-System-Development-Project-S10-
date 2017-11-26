@@ -146,6 +146,7 @@ public class User extends Player {
     	}
     	else {
     		System.out.println("Invalid input!");
+    		Timer.End();
     		n = promptUser();
     	}
     	Timer.End();
