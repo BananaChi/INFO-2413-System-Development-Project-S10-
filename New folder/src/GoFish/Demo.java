@@ -6,6 +6,10 @@ package GoFish;
 
 import java.util.Scanner;
 
+/* 
+ * This class gives the demo of the game.
+ * This class needs to be run to play the game
+ */
 public class Demo {
 	
 	public static int waiting = 0;
