@@ -3,13 +3,13 @@
  * @version 1.0
  */
 package GoFish;
-/**
- * The Class Presentation: Run this to see two player (computer) play GoFish.
- */
 
+/**
+ * The Presentation: Run this to see two player (computer) play GoFish.
+ * This class can be useful for presentation in class
+ */
 public class Presentation {
-public static void main(String[] args) {
-		
+	public static void main(String[] args) {		
     	     
         try{
         	Game GoFish = new Game();

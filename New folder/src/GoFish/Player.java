@@ -7,7 +7,7 @@ package GoFish;
 import java.util.Scanner;
 
 /**
- * This class encapsulates a player in a game of crazy eights.
+ * This class encapsulates a player in a game of Go Fish.
  */
 public abstract class Player {
 
@@ -16,8 +16,7 @@ public abstract class Player {
     
     /** The hand: the cards held by one player. */
     protected Hand hand;
-    
-    
+        
     /**
      * Instantiates a new player with an empty hand.
      *
@@ -88,8 +87,6 @@ public abstract class Player {
     	}
     }
         
-    
-
     /**
      * Display the player's name and score.
      */

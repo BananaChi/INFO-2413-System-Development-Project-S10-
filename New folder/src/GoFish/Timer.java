@@ -1,5 +1,12 @@
+/* 
+ * @author Kim Tang
+ * @version 1.0
+ */
 package GoFish;
 
+/* *
+ * This class is helpful to notice time taken by the system to execute various steps
+ */
 public class Timer {
 	private static long time1; //start
 	private static long time2; //end
