@@ -9,8 +9,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.Arrays;
 
-
-
 /* PasswordDemo.java requires no other files. */
 
 public class PasswordDemo extends JPanel
@@ -132,19 +130,7 @@ public class PasswordDemo extends JPanel
         	//Driver.addUser(enteredName, e); this is already handled in the register method
         	enteredPassword = e;
         }
-        /*char[] correctPassword = Driver.getPlayerPassword(enteredName).toCharArray();// { 'b', 'u', 'g', 'a', 'b', 'o', 'o' };
         
-        //har[] c_arr = g.toCharArray(); // returns a length 4 char array ['l','i','n','e']
-
-        if (input.length != correctPassword.length) {
-            isCorrect = false;
-        } else {
-            isCorrect = Arrays.equals (input, correctPassword);
-        }
-
-        //Zero out the password.
-        Arrays.fill(correctPassword,'0');*/
-
         return isCorrect;
     }
 

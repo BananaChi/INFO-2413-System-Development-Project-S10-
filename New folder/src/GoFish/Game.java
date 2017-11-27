@@ -1,16 +1,15 @@
-
-package GoFish;
-
 /* 
  * @author Ravnit Kaur
  * @version 1.0
  */
 
+package GoFish;
+
 import java.util.Scanner;
 
 
 /**
- * The class creates and maintains the state of the crazy eights game.
+ * The class creates and maintains the state of the Go Fish game.
  */
 public class Game {
 	

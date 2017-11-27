@@ -1,9 +1,8 @@
-package GoFish;
-
 /* 
  * @author Ravnit Kaur
  * @version 1.0
  */
+package GoFish;
 
 import java.util.Collections;
 
@@ -41,7 +40,6 @@ public class Deck extends CardArray {
     	for (int i = 0; i < n; i++){
     		Card card = popCard();
     		hand.addCard(card);
-    		
     	}
     }
 
@@ -53,8 +51,7 @@ public class Deck extends CardArray {
     public void dealAll(CardArray pile) {
         int n = size();
         deal(pile, n);
-    }
-	
+    }	
 
     /* Returns a string representation of the Deck.  */
     @Override

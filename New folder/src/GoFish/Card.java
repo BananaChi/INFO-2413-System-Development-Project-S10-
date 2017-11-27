@@ -23,8 +23,7 @@ public class Card {
     /** The Constant array of SUITS. */
     public static final String[] SUITS = {
         "Clubs", "Diamonds", "Hearts", "Spades"};
-    
-    
+        
     /**
      * Instantiates a new card.
      *

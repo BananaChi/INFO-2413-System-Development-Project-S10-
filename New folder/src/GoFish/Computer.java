@@ -1,4 +1,3 @@
-
 /* 
  * @author Ravnit Kaur
  * @version 1.0
@@ -64,6 +63,4 @@ public class Computer extends Player {
             hand.addCard(card);
         }
     }
-
-
 }
