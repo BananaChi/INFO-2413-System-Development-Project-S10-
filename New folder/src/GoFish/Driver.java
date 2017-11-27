@@ -1,29 +1,13 @@
-
-package GoFish;
-
 /* 
  * @author Kim Tang
  * @version 1.0
  */
 
+package GoFish;
+
 import java.sql.*;
 
 public class Driver {
-
-	public static void main(String[] args) 
-	{
-		//you can use main to test out if your database with queries works if you want
-		// just adjust values here and then copy and paste the content of a method and insert it in main below the variables
-		
-		String username = "kim";
-		String password = "kim";
-		int score = 2;
-		
-		
-	}
-	
-	//method to display the entire database 
-	//--- currently not used
 	
 	public static void getFullData()
 	{
