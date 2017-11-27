@@ -28,11 +28,21 @@ public class User extends Player {
 	/* This method implements play from Player class  */
     public Card play(Game GoFish, Card prev) {
     	
+    	//loop variable resets timer accordingly if a new card is drawn 
+    	//(otherwise the moment from drawing the first card until for example the end of drawing 6 more cards
+    	//before playing the 7th card would be timed and that's inaccurate
+    	
+    	//initially it will be assumed that we are not in the loop
+    	//loop = 1 means in the loop
+    	//loop = 0 means out of the loop, where loop means we draw more cards with 0 (go fish)
+    	
     	int loop = 1;
     	   	
     	// Get the card number from the user
     	int n = promptUser();
     	Timer.Start();
+    	
+    	//set loop variable to 0 because we are in the loop
     	if (n==0)
     	{
     		//Timer.Start();
@@ -48,6 +58,8 @@ public class User extends Player {
     		hand.addCard(card);
     		System.out.println(name + "'s hand:");
     		System.out.println(hand);
+    		
+    		//if we were in the loop, meaning we drew a card, the timer will be stopped and we are out of the loop
     		if (loop==0)
     		{
     			//Timer ended.
@@ -58,6 +70,7 @@ public class User extends Player {
     	    n = input.nextInt();
     	    //Timer started.
 	    	Timer.Start();
+	    	//if the next action is drawing a card again (input = 0 for go fish) we are in the loop again
     	    if (n==0)
     	    {
     	    	
@@ -84,6 +97,7 @@ public class User extends Player {
         					+ "or enter 0 to go fish! (draw a new card): ");
            		n = input.nextInt();
            		
+           		//same loop procedure as above
            		if (n==0) {
            			loop=0;
            		}           		
